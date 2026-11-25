@@ -171,6 +171,7 @@ void TickHandler1(void *CallBackRef){
 
 
 
+
 	//****END OF OWN CODE*****************
 	//clear timer interrupt status. DO NOT REMOVE
 	StatusEvent = XTtcPs_GetInterruptStatus((XTtcPs *)CallBackRef);
@@ -188,15 +189,15 @@ void ButtonHandler(void *CallBackRef, u32 Bank, u32 Status){
 	//Hint: Status==0x01 ->btn0, Status==0x02->btn1, Status==0x04->btn2, Status==0x08-> btn3, Status==0x10->SW0, Status==0x20 -> SW1
 
 	//If true, btn0 was used to trigger interrupt
-	if(Status==0x01){
-
-	}
 
 
+    if (Status == 0x01) game_state.buttons[0] = 1;
+    if (Status == 0x02) game_state.buttons[1] = 1;
+    if (Status == 0x04) game_state.buttons[2] = 1;
+    if (Status == 0x08) game_state.buttons[3] = 1;
 
-
-
-
+    if (Status == 0x10) game_state.buttons[0] = 1;
+    if (Status == 0x20) game_state.buttons[1] = 1;
 
 
 	//****END OF OWN CODE*****************

@@ -17,6 +17,8 @@ typedef struct {
 typedef struct {
     Position player_pos;
     Enemy enemies[MAX_ENEMY_COUNT];
+
+    Input_State input;
 } Game_State;
 
 
