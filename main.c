@@ -95,6 +95,7 @@ Brief description:
 *****************************************************************************************/
 
 
+Game_State game_state = init_game();
 
 
 int main()
@@ -111,10 +112,6 @@ int main()
 
 	    //Setup screen
 	    setup();
-	    SetPixel(4,7,186,85,211);
-	    run(4);
-	    open_line(4);
-
 
 
 	    Xil_ExceptionEnable();
