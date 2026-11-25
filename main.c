@@ -191,13 +191,13 @@ void ButtonHandler(void *CallBackRef, u32 Bank, u32 Status){
 	//If true, btn0 was used to trigger interrupt
 
 
-    if (Status == 0x01) game_state.buttons[0] = 1;
-    if (Status == 0x02) game_state.buttons[1] = 1;
-    if (Status == 0x04) game_state.buttons[2] = 1;
-    if (Status == 0x08) game_state.buttons[3] = 1;
+    if (Status == 0x01) game_state.input.buttons[0] = 1;
+    if (Status == 0x02) game_state.input.buttons[1] = 1;
+    if (Status == 0x04) game_state.input.buttons[2] = 1;
+    if (Status == 0x08) game_state.input.buttons[3] = 1;
 
-    if (Status == 0x10) game_state.buttons[0] = 1;
-    if (Status == 0x20) game_state.buttons[1] = 1;
+    if (Status == 0x10) game_state.input.buttons[0] = 1;
+    if (Status == 0x20) game_state.input.buttons[1] = 1;
 
 
 	//****END OF OWN CODE*****************
