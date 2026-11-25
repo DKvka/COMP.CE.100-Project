@@ -1,8 +1,8 @@
 /*
  * Pixel.h
  *
- *  Created on: ------
- *      Author: ------
+ *  Created on: 25-11-2026
+ *      Author: Ossi Härkönen, Diego Koivukangas
  */
 
 #ifndef PIXEL_H_
@@ -17,11 +17,11 @@
 #include "xparameters.h"
 
 // MMIO locations
-static uint8_t* const CHANNEL_ADDR = 0x41220000;
-static uint8_t* const CTRL_ADDR = 0x41220008;
-static uint8_t* const INPUT_ADDR = 0xE000A068;
-static uint8_t* const LED_ADDR = 0x41200000;
-static uint8_t* const RGB_ADDR = 0x41240000;
+static uint8_t* const CHANNEL_ADDR = (uint8_t*) 0x41220000;
+static uint8_t* const CTRL_ADDR = (uint8_t*) 0x41220008;
+static uint8_t* const INPUT_ADDR = (uint8_t*) 0xE000A068;
+static uint8_t* const LED_ADDR = (uint8_t*) 0x41200000;
+static uint8_t* const RGB_ADDR = (uint8_t*) 0x41240000;
 
 static const uint8_t SDA_MASK = 0b00010000;
 static const uint8_t SCK_MASK = 0b00001000;
