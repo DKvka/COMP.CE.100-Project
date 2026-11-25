@@ -171,6 +171,8 @@ void TickHandler1(void *CallBackRef){
 
 
 
+    // MUST HAPPEN LAST (OR AFTER INPUT IS HANDLED)
+    game_state.input = {};
 
 	//****END OF OWN CODE*****************
 	//clear timer interrupt status. DO NOT REMOVE
