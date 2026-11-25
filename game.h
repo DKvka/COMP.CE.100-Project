@@ -17,5 +17,8 @@ typedef struct {
     Enemy enemies[MAX_ENEMY_COUNT];
 } Game_State;
 
+
+Game_State init_game();
+
 #endif GAME_H
 
