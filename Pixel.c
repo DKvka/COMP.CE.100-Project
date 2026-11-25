@@ -2,7 +2,7 @@
  * Pixel.c
  *
  *  Created on: 11-11-26
- *      Author: Diego Koivukangas && Ossi Härkönen
+ *      Author: Diego Koivukangas && Ossi Hï¿½rkï¿½nen
  */
 
 #include "Pixel.h"
@@ -20,6 +20,21 @@ void set_bit(uint8_t* addr, uint8_t mask) {
 void unset_bit(uint8_t* addr, uint8_t mask) {
 	*addr &= ~mask;
 }
+
+void send_byte(uint8_t byte)
+{
+	for (uint8_t mask = 0b10000000; mask != 0; mask >>= 1) {
+		if (mask & byte) {
+			set_bit(CTRL_ADDR, SDA_MASK);
+		} else {
+			unset_bit(CTRL_ADDR, SDA_MASK);
+		}
+
+		set_bit(CTRL_ADDR, SCK_MASK);
+		unset_bit(CTRL_ADDR, SCK_MASK);
+		
+	}
+};
 
 
 // Here the setup operations for the LED matrix will be performed
@@ -67,11 +82,12 @@ void run(uint8_t x){
 	//Hint: use nested loops (loops inside loops)
 	//Hint2: loop iterations are 8,3,8 (pixels,color,8-bitdata)
 
-	for (uint8_t y = 0; y < sizeof(dots[x]); y++ ) {
-		for (uint8_t color = 0; color < sizeof(dots[x][y]); color++) {
-			// TODO: send byte
+	for (uint8_t y = 0; y < 8; y++ ) {
+		for (uint8_t color = 0; color < 3; color++) {
+			send_byte(dots[x][y][color]);
 		}
 	}
+	latch();
 }
 
 //Latch signal. See colorsshield.pdf or DM163.pdf in project folder on how latching works
